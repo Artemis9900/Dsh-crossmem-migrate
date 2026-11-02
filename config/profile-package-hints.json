@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "dsh-crossmem": "file:./node_modules/dsh-crossmem",
+    "dsh-crossmem-qq": "file:./node_modules/dsh-crossmem-qq"
+  },
+  "bundleOrder": [
+    "dsh-crossmem",
+    "dsh-crossmem-qq"
+  ],
+  "actualBundles": [
+    "@deepseek-ai/dsh-base",
+    "@deepseek-ai/dsh-web-app",
+    "qq-mode-console",
+    "qq-agent-presets",
+    "dsh-pet",
+    "@dsh-pet/bridge",
+    "dsh-nekowhale-stickers",
+    "dsh-ebbinghaus",
+    "dsh-douyin-scroll",
+    "billion-context",
+    "dsh-crossmem",
+    "dsh-crossmem-qq"
+  ]
+}

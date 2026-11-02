@@ -1,0 +1,14 @@
+{
+  "sessions": {
+    "group:916178625": "session-1c5e407d-ef07-4fbf-979e-474cb87b5cc8",
+    "private:617171367": "session-3fab2271-fc99-49b7-a0e0-83148f3a06f7",
+    "private:3071797929": "session-fd38f8a7-221c-453d-a8bb-79cda897a87e",
+    "group:836937405": "session-105d8dfd-e51a-4615-a9b4-0c848db7b146"
+  },
+  "sessionPolicies": {
+    "group:916178625": "[\"reserved2\",\"qq-chat-v2\",null]",
+    "private:617171367": "[\"reserved2\",\"qq-chat-v2\",null]",
+    "private:3071797929": "[\"reserved2\",\"qq-chat-v2\",null]",
+    "group:836937405": "[\"reserved2\",\"qq-chat-v2\",null]"
+  }
+}

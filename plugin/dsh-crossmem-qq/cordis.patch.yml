@@ -1,0 +1,8 @@
+# Bundle layer: 装了 dsh-crossmem-qq 就在 profile 里挂一行（可选依赖 dsh-crossmem）。
+- insert:
+    - id: dsh-crossmem-qq
+      name: dsh-crossmem-qq
+      config:
+        injectCount: 8
+        maxInjectChars: 2000
+        ownerPrivate: private:617171367

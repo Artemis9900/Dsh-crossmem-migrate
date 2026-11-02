@@ -1,0 +1,162 @@
+{
+  "name": "dsh-crossmem-migrate",
+  "createdAt": "2026-11-02T12:41:23.540Z",
+  "layout": "flat (bundle contents at archive root, no wrapper folder)",
+  "packages": [
+    {
+      "name": "dsh-crossmem",
+      "version": "0.3.0",
+      "role": "core (required)"
+    },
+    {
+      "name": "dsh-crossmem-qq",
+      "version": "0.1.0",
+      "role": "QQ domain (optional, recommended)"
+    }
+  ],
+  "installer": "install-migrate.ps1 — PackageRoot defaults to $PSScriptRoot, also auto-detects a wrapped folder; supports -DryRun / -WithData",
+  "docs": [
+    "README-MIGRATE.md",
+    "README-MIGRATE-en.md",
+    "INSTALL.txt (quick steps, zh+en)"
+  ],
+  "host": {
+    "node": "v24.20.0",
+    "platform": "win32",
+    "home": "C:\\Users\\REGRESSION"
+  },
+  "fileCount": 26,
+  "totalBytes": 643435,
+  "files": [
+    {
+      "path": "config/crossmem-state.json",
+      "bytes": 600,
+      "sha256": "8433f6c60a8d090e617517fbfbd217cd1b5311c99eb2dc76793b1648536807b6"
+    },
+    {
+      "path": "config/owner.json",
+      "bytes": 319,
+      "sha256": "052cf74ee6abf0b3d32a37f1267c839277a3b5b45f3ae52bf54dab25aade2e2c"
+    },
+    {
+      "path": "config/profile-package-hints.json",
+      "bytes": 525,
+      "sha256": "be135bb71b9166572edbce77aab8cd2990ab6ac05e2ba06368755733c29eb953"
+    },
+    {
+      "path": "config/qq-sessions.machine-specific.json",
+      "bytes": 592,
+      "sha256": "0642ff9bb8e7daa5d2da50c068db9ea6d1a81ef931d745a5e6ea1a3a6a89f1cd"
+    },
+    {
+      "path": "config/qqMemory.json",
+      "bytes": 126,
+      "sha256": "2b5335bdc7d6698520025172426ca0c3274c9c87217cf0fb6120148c6c3cdac8"
+    },
+    {
+      "path": "data/memory-shared.db",
+      "bytes": 393216,
+      "sha256": "0e16fb0e7a75fb78cba42ffd712ec9ff0a50a911c45dae8a257878c040c12dc6"
+    },
+    {
+      "path": "data/qq-memory.db",
+      "bytes": 49152,
+      "sha256": "c3d31377b0772831570353794c454a618528479b88e11224721624de13f73eaf"
+    },
+    {
+      "path": "install-migrate.ps1",
+      "bytes": 9405,
+      "sha256": "74a142ad520b896d14647e89dc284faba469fb814fdc49fda1aa25cab273fef9"
+    },
+    {
+      "path": "INSTALL.txt",
+      "bytes": 2721,
+      "sha256": "3f3a5a9a6c1bd13c7c6299084d44976c67d8af1797aa2d5672504b446970ea7f"
+    },
+    {
+      "path": "plugin/dsh-crossmem-qq/client.js",
+      "bytes": 6764,
+      "sha256": "c4b87bf07fb30b9cabb7c63d04ecb8b9631784b428e09602c8877043e92f07f7"
+    },
+    {
+      "path": "plugin/dsh-crossmem-qq/cordis.patch.yml",
+      "bytes": 271,
+      "sha256": "848cc4926b3d660832c2aa4bae69371224d08869552ed4ce8c7acf9dbd3b07c1"
+    },
+    {
+      "path": "plugin/dsh-crossmem-qq/lib/index.js",
+      "bytes": 14005,
+      "sha256": "ed9bc0b765dc068bd1d8154260b999dc6684be9c8af9afebc76477d979ba8a5c"
+    },
+    {
+      "path": "plugin/dsh-crossmem-qq/package.json",
+      "bytes": 1124,
+      "sha256": "e397a5563ec76e197f49031358886bfdc1130e317b51ef2e121f83dad180f480"
+    },
+    {
+      "path": "plugin/dsh-crossmem-qq/README.md",
+      "bytes": 2583,
+      "sha256": "eb2693e2b29287420b07a1cfa6f249248963435656f95113bf7e7f4065f3cc17"
+    },
+    {
+      "path": "plugin/dsh-crossmem/client.js",
+      "bytes": 13947,
+      "sha256": "e8ed84ee82d5696d81c066b28ed34712a982aea9da21fbd1defe7babbceb4f5f"
+    },
+    {
+      "path": "plugin/dsh-crossmem/cordis.patch.yml",
+      "bytes": 387,
+      "sha256": "0f4ed592bca53063d6cd2d3766c62b721999d7ffe4b38d6879cdcffeae2b5da3"
+    },
+    {
+      "path": "plugin/dsh-crossmem/install.ps1",
+      "bytes": 7849,
+      "sha256": "4d1720461647464f590f890f7548a715a96a51040ce7aca48d8adc8f75b745f7"
+    },
+    {
+      "path": "plugin/dsh-crossmem/lib/index.js",
+      "bytes": 58623,
+      "sha256": "c1ef86772312b24b144e559c96657d114a25bc447f85ed9c4ce725003fa98649"
+    },
+    {
+      "path": "plugin/dsh-crossmem/package.json",
+      "bytes": 1410,
+      "sha256": "57fcdb6bcd3c52633f9434c0c5c082dd90e0d877b2b4b97215890c2aaa70482e"
+    },
+    {
+      "path": "plugin/dsh-crossmem/README.md",
+      "bytes": 14898,
+      "sha256": "54f8a57848f470705a573b85532b93c0504c6d7404bd072af8981b552b97262b"
+    },
+    {
+      "path": "plugin/dsh-crossmem/rollback.ps1",
+      "bytes": 6302,
+      "sha256": "a34a7c73f4f089f83ca0a506fddae8b4b465e8986786a4af2c56180f11ce5cad"
+    },
+    {
+      "path": "plugin/dsh-crossmem/scan-injection.mjs",
+      "bytes": 3677,
+      "sha256": "e6dc6dfc7adef62dd45cd691d184783e4790b94fee62e4848c95a931f78617a2"
+    },
+    {
+      "path": "plugin/dsh-crossmem/test.mjs",
+      "bytes": 19471,
+      "sha256": "cce5b35257add22125b361f7309ef06db502955741b2ab5b20b3339c97557a06"
+    },
+    {
+      "path": "plugin/dsh-crossmem/uninstall.ps1",
+      "bytes": 4528,
+      "sha256": "647240b7c05d8e1a2a0e81a7e8493f81f20ca4aefef5c45417ee0a0d145850c5"
+    },
+    {
+      "path": "README-MIGRATE-en.md",
+      "bytes": 15003,
+      "sha256": "76d856c5f4bc1fccaaa036b241b896185943b83044516018d19bbf8c213bcc19"
+    },
+    {
+      "path": "README-MIGRATE.md",
+      "bytes": 15937,
+      "sha256": "6b855af6bfd7e57934b78decd890b50caec343ef5f8fc65b1acf774347cf6ce5"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+dsh-crossmem 迁移包 / Migration bundle
+
+版本 / Versions
+  dsh-crossmem     0.3.0   （core，必装 / required）
+  dsh-crossmem-qq  0.1.0   （QQ 域，可选但建议装 / optional, recommended）
+
+一、最快的方式 / Fastest path
+
+  1) 解压到任意目录（例如 D:\dsh-crossmem-migrate）
+  2) 打开 PowerShell，进到该目录：
+       powershell -ExecutionPolicy Bypass -File .\install-migrate.ps1 -DryRun
+       powershell -ExecutionPolicy Bypass -File .\install-migrate.ps1
+     想把旧记忆一起带过去，就加 -WithData：
+       powershell -ExecutionPolicy Bypass -File .\install-migrate.ps1 -WithData
+  3) 重启 DSH（插件在启动时加载）
+  4) 只有跑 QQ 机器人那台，把 config\qqMemory.json 合进桥的 config.json 并重启桥接
+
+  The installer copies both plugins into the profile's node_modules, registers them
+  in package.json (UTF-8 without BOM), restores the state files, and optionally the
+  two database snapshots. It never starts or restarts DSH.
+
+二、包内结构 / Layout
+
+  plugin\dsh-crossmem\        核心 / core
+  plugin\dsh-crossmem-qq\     QQ 域 / QQ domain
+  config\crossmem-state.json  软开关 + 打通组      -> ~\.dsh-crossmem\state.json
+  config\qqMemory.json        桥接侧会话记忆库配置
+  config\owner.json           ownerQQ + qqMemory 合并版
+  config\profile-package-hints.json   目标机器 package.json 该加什么
+  config\qq-sessions.machine-specific.json  旧机器会话映射（不要覆盖）
+  data\memory-shared.db       长期记忆库快照
+  data\qq-memory.db           QQ 会话记忆库快照
+  install-migrate.ps1         一键安装（支持 -DryRun / -WithData）
+  manifest.json               文件清单 + SHA-256
+
+三、装完验收 / Verify
+
+  - 任意会话调 crossmem_stats：应显示「外部会话域：qq」
+  - 设置页应有两个区块：跨会话记忆 + QQ 记忆库
+  - 打通组按 session id 绑，需在新机器面板里重新点选
+  - QQ 公共记忆库（qqPool）按 group:/private: 键，可直接沿用
+
+四、不要做的事 / Do NOT
+
+  - 不要覆盖 state\sessions.json（旧机器的会话映射，新机器由桥接自动生成）
+  - 不要用带 BOM 的方式保存 package.json（DSH 解析失败会静默跳过该 bundle）
+  - 不要改打通组的 session id（换了机器它们就不存在了，重新点选即可）

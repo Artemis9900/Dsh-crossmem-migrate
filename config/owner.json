@@ -1,0 +1,11 @@
+{
+  "ownerQQ": 617171367,
+  "qqMemory": {
+    "dbPath": "D:\\deepseek memory\\state\\qq-memory.db",
+    "ttlHours": 24,
+    "ownerPrivate": [
+      "private:617171367"
+    ]
+  },
+  "note": "ownerQQ decides which private chat is the sink-only owner DM. If the QQ number stays the same on the new machine, copy as is."
+}

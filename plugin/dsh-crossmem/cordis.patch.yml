@@ -1,0 +1,12 @@
+# Bundle layer: applied when a profile lists dsh-crossmem.
+# 只挂一个条目；真正的配置在插件自己的 Config 里（设置页可改 / patch 里可覆盖）。
+- insert:
+    - id: dsh-crossmem
+      name: dsh-crossmem
+      config:
+        injectCount: 5
+        maxInjectChars: 800
+        includeQq: false
+        autoCapture: true
+        curve: power
+        curveK: 1.5

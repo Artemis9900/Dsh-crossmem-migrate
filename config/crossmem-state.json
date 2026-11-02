@@ -1,0 +1,26 @@
+{
+  "inject": true,
+  "capture": true,
+  "groups": [
+    {
+      "id": "gmvxi7dmm",
+      "name": "1",
+      "sessions": [
+        "session-3fab2271-fc99-49b7-a0e0-83148f3a06f7",
+        "session-fd38f8a7-221c-453d-a8bb-79cda897a87e",
+        "session-1c5e407d-ef07-4fbf-979e-474cb87b5cc8",
+        "session-5d826b11-e456-4339-8099-786c0c24f322"
+      ]
+    },
+    {
+      "id": "gmvz4w0jl",
+      "name": "2",
+      "sessions": [
+        "session-f8958276-600d-4208-8815-dbecd82b2864",
+        "session-7258f363-1fc1-48af-9889-ee625f1f0194"
+      ]
+    }
+  ],
+  "reason": "",
+  "at": 1793616406673
+}

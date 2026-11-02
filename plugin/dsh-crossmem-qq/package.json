@@ -1,0 +1,36 @@
+{
+  "name": "dsh-crossmem-qq",
+  "version": "0.1.0",
+  "description": "QQ 域插件（可选）：把 QQ 桥接机器人的群/私聊接进 dsh-crossmem —— 会话身份映射、QQ 公共记忆库、管理员私信单向可见、口令/快照抓取。不装它，crossmem 只处理本机会话。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "memory", "qq"],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": ["./cordis.patch.yml"]
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": { "optional": true },
+    "@deepseek-ai/schemastery": { "optional": true }
+  },
+  "engines": { "node": ">=22" }
+}
