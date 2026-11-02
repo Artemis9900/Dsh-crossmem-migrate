@@ -1,21 +1,20 @@
 # Dsh-crossmem-migrate
-它让不同会话共享一份记忆——你在 A 会话说的事，B 会话开口就知道；群里定的口令，别的群也认；但管理员私聊里说的只留在私聊。
-作用
-自动记：从对话里抓明确陈述（「记住…」「我叫…」「我发 X 你回 Y」），不花 token
-自动提醒：每轮往系统提示里塞一小段记忆（本机 5 条 / QQ 8 条），不用你主动问
-分范围：本机共享 / 打通组 / QQ 公共库 / 管理员私信（单向：能读全库，写的不外流）
-能管：设置页一个面板，开关注入与记录、拉打通组、挑哪些 QQ 会话进公共库
-原理
-只有一个东西是长期存在的：一张 SQLite 表（memories，字段有内容、重要度、来源、范围、强度）。所有花招都围绕它：
+It allows different sessions to share a single memory—what you say in session A is immediately available in session B; passwords set in one group are recognized by other groups; but what the administrator says in private chat remains in private chat. 
 
-注入：挂 system-prompt/assemble 钩子，每次拼提示词时现查这张表，按「遗忘曲线 × 重要度」挑几条塞进去——不落盘、不追加历史，关掉开关下一轮就干净了。
+Function
+Automatic recording, automatic reminders, scoped management, capable control.
 
-抓取：挂 agent/pre-step 钩子，读最近两条用户消息，用正则抽事实写回表。QQ 那边不扫整段提示词（会抓出垃圾），而是解析桥接附在末尾的【本次消息快照】JSON，只取别人说的话。
+Principle
+Only one component exists long-term: an SQLite table (memories, with fields for content, importance, source, scope, intensity). All techniques revolve around it:
 
-范围靠 scope 字段：shared 人人可见、组id 组内可见、qq QQ 池内可见、own:<会话> 只有它自己——所以「谁能看到」是查表时过滤，不需要多开库。
+Injection: Attach system-prompt/assemble hooks. Every time a prompt is assembled, the table is queried, and a few entries are selected according to "forgetting curve × importance" and inserted—without writing to disk or appending history; turning off the switch cleans it for the next round.
 
-拆成两个包：核心只认「会话 + 组 + scope」这套通用概念；QQ 的身份映射、公共库、口令规则放在可选的 QQ 域插件里，通过 5 个方法的接口注册给核心。不装它，核心就只服务本机会话。
+Extraction: Attach agent/pre-step hooks to read the last two user messages, use regex to extract facts and write them back to the table. On the QQ side, entire prompt blocks are not scanned (would capture junk); instead, the attached [Current Message Snapshot] JSON at the end is parsed, capturing only what others said.
 
-和别的记忆插件共用一张表：dsh-ebbinghaus 负责「什么该忘」（遗忘曲线、复习、归档），QQ 桥负责「写什么进来」，crossmem 负责「现在提醒什么」。三方共表，靠 source 前缀区分来源。
+Scope is controlled by the scope field: shared (visible to all), group id (visible within the group), qq (visible within QQ pool), own:<session> (visible only to itself)—thus "who can see it" is filtered when querying the table, no additional databases are needed.
 
-一句话概括原理：一张表存所有记忆，两个钩子管「写」和「提醒」，一个 scope 字段管「谁能看」，一个可选域插件管「QQ 是谁」。
+Split into two packages: the core only recognizes the universal concept of "session + group + scope"; QQ identity mapping, public database, and password rules are in an optional QQ domain plugin, registered to the core through a five-method interface. Without it, the core only serves the current session.
+
+Sharing a single table with other memory plugins: dsh-ebbinghaus handles "what should be forgotten" (forgetting curves, review, archiving), QQ bridge handles "what to write in", and crossmem handles "what to remind now". The shared table distinguishes sources by prefixes.
+
+In summary: a single table stores all memories, two hooks manage "writing" and "reminding", one scope field manages "who can see it", and an optional domain plugin handles "who is QQ".
